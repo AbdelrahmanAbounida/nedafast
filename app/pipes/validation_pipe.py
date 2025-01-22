@@ -17,6 +17,7 @@ class ValidationPipe:
         elif isinstance(exc, ValidationError):
             errs = exc.errors()
             errors = []
+            # TODO:: add more error types
             for err in errs:
                 match err['type']:
                     case 'json_invalid':

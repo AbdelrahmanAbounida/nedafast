@@ -7,7 +7,7 @@ from fastapi.responses import HTMLResponse
 from fastapi import FastAPI, Request
 from app.lifespan import lifespan
 from dotenv import load_dotenv
-
+from app.core.config import settings
 
 
 
@@ -18,9 +18,8 @@ load_dotenv()
 app = FastAPI(
     lifespan=lifespan,
     dependencies=[],  # TODO: Add dependencies for API authentication if required
-    middleware=[
-
-    ],
+    middleware=[],
+    openapi_url=f"/openapi_{settings.CURRENT_VERSION}.json",
     description="""
         Scalable and robust backend server with FastAPI, integrating MongoDB using Beanie ODM. 
         Includes JWT-based authentication, TypeScript code generation, and modular architecture 

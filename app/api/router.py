@@ -4,6 +4,7 @@
 
 from fastapi import APIRouter
 from app.api.v1 import items_router
+from app.core.config import settings
 
 from app.api.health_check import router as health_check_router
 
@@ -12,7 +13,7 @@ from app.api.health_check import router as health_check_router
 # *****************
 
 router = APIRouter(
-    prefix="/api/v1"
+    prefix=f"/api/{settings.CURRENT_VERSION}"
 )
 
 # TODO >> register more routers here 
