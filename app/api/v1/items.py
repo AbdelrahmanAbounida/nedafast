@@ -10,9 +10,9 @@ router = APIRouter(tags=["ITems Router"],prefix="/item")
 @router.get("/")
 async def get_items_route():
     items = await get_items() 
-    print(f"items: {items}")
+    print(1/0)
     return items 
-
+ 
 
 @router.post("/")
 async def create_item_route(body:CreateItemSchema):
